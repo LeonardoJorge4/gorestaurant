@@ -1,10 +1,12 @@
 import React from 'react';
 
+import 'react-native-gesture-handler';
 import AppLoading from 'expo-app-loading'
 import { StatusBar } from 'expo-status-bar';
 import { Roboto_400Regular } from '@expo-google-fonts/roboto';
 import { useFonts, Poppins_600SemiBold } from '@expo-google-fonts/poppins';
-import { Initial } from './src/screens/Initial';
+
+import Routes from './src/routes';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -17,8 +19,8 @@ export default function App() {
   } else {
     return (
       <>
+        <Routes />
         <StatusBar style="light" />
-        <Initial />
       </>
     );
   }
