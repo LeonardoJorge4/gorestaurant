@@ -1,24 +1,32 @@
 import React from 'react';
 import {
-  Image,
   SafeAreaView,
-  Text,
-  TouchableOpacity,
+  Keyboard,
   View,
-  ImageBackground,
+  KeyboardAvoidingView,
+  TouchableWithoutFeedback,
 } from "react-native";
 
-
-import { Feather } from '@expo/vector-icons'; 
+import { Input } from '../../components/Input';
+import { Header } from '../../components/Header';
 
 import { styles } from './styles';
 
 export function Listing() {
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.content}>
-        <Text>dsadasdasddsadasd</Text>
-      </View>
+      <KeyboardAvoidingView style={styles.container} behavior={null}>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View style={styles.content}>
+            <Header />
+
+            <View style={styles.spacing}>
+              <Input />
+            </View>
+
+          </View>
+        </TouchableWithoutFeedback>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   )
 }

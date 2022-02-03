@@ -1,77 +1,64 @@
 import React from 'react';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Feather } from "@expo/vector-icons"
 
 import { Orders } from '../screens/Orders';
 import { Listing } from '../screens/Listing';
 import { Favorites } from '../screens/Favorites';
 
-import { theme } from '../global/theme';
+import { Header } from '../components/Header';
+import { OptionTabNavigator } from '../components/OptionTabNavigator';
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
 const TabRoutes = () => (
   <Navigator
     initialRouteName="Listing"
+    screenOptions={{
+      tabBarHideOnKeyboard: true,
+    }}
   >
     <Screen
       name="Listing"
       component={Listing}
       options={{
-        tabBarItemStyle: {
-          flexDirection: 'row',
-          alignContent: "center"
-        },
-        tabBarLabel: "Listagem",
-        tabBarLabelStyle: {
-          fontFamily: theme.fonts.title,
-          fontSize: 12,
-          color: theme.colors.red,
-        },
-        tabBarIcon: () => (
-          <Feather
-            size={24}
-            name="list"
-            color={theme.colors.red}
+        headerShown: false,
+        tabBarShowLabel: false,
+        tabBarIcon: ({ focused }) => (
+          <OptionTabNavigator 
+            icon="list"
+            title="Listagem"
+            focused={focused}
           />
         )
       }}
     />
+
     <Screen
       name="Orders"
       component={Orders}
       options={{
-        tabBarLabel: "Pedidos",
-        tabBarLabelStyle: {
-          fontFamily: theme.fonts.title,
-          fontSize: 12,
-          color: theme.colors.red,
-        },
-        tabBarIcon: () => (
-          <Feather
-            size={24}
-            name="shopping-bag"
-            color={theme.colors.red}
+        tabBarShowLabel: false,
+        tabBarIcon: ({ focused }) => (
+          <OptionTabNavigator 
+          title="Pedidos"
+          icon="shopping-bag"
+            focused={focused}
           />
         )
       }}
     />
+
     <Screen
       name="Favorites"
       component={Favorites}
-      options={{
-        tabBarLabel: "Favoritos",
-        tabBarLabelStyle: {
-          fontFamily: theme.fonts.title,
-          fontSize: 12,
-          color: theme.colors.red,
-        },
-        tabBarIcon: () => (
-          <Feather
-            size={24}
-            name="heart"
-            color={theme.colors.red}
+      options={{ 
+        tabBarShowLabel: false,
+        tabBarIcon: ({ focused }) => (
+          <OptionTabNavigator 
+            title="Favoritos"
+            icon="heart"
+            focused={focused}
           />
         )
       }}

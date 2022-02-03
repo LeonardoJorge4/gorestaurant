@@ -8,7 +8,7 @@ import {
   ImageBackground,
 } from "react-native";
 
-import bowlIcon from "../../assets/bowl.png";
+import logoPng from "../../assets/logo.png";
 import backgroundImage from '../../assets/bowlBackground.png';
 import { Feather } from '@expo/vector-icons'; 
 
@@ -25,7 +25,7 @@ export function Initial() {
         <View style={styles.content}>
           <View>
             <Image
-              source={bowlIcon}
+              source={logoPng}
               style={styles.image}
             />
             <Text style={styles.subtitle}>
